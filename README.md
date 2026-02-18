@@ -45,3 +45,10 @@ mvn test
 ```
 
 Test profile uses in-memory H2 with Flyway migrations (no local PostgreSQL required).
+
+Frontend unit tests:
+```bash
+cd frontend
+npm install
+npm run test
+```

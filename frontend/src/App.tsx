@@ -148,7 +148,7 @@ export default function App() {
         qtyNeeded: Number(bomForm.qtyNeeded)
       }
       await api('/bom', { method: 'POST', body: JSON.stringify(body) })
-      setBomForm(emptyBom)
+      setBomForm((prev) => ({ ...emptyBom, productId: prev.productId }))
       if (selectedProductId != null) await loadBom(selectedProductId)
       setPlan(await api<PlanResponse>('/planning/suggestion'))
     } catch (err) {
