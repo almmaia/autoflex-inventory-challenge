@@ -13,6 +13,9 @@ Web system for inventory management and production planning:
 - Infrastructure: Docker Compose
 
 ## Run with Docker
+1. Copy `.env.example` to `.env` and adjust the local-only values.
+2. Run:
+
 ```bash
 docker compose up --build
 ```
@@ -25,6 +28,11 @@ URLs:
 ## Local Run
 
 Backend:
+Configure your local PostgreSQL connection before starting Quarkus:
+- `QUARKUS_DATASOURCE_JDBC_URL`
+- `QUARKUS_DATASOURCE_USERNAME`
+- `QUARKUS_DATASOURCE_PASSWORD`
+
 ```bash
 cd backend
 mvn quarkus:dev
@@ -36,6 +44,10 @@ cd frontend
 npm install
 npm run dev
 ```
+
+Notes:
+- `.env` is for local use only and must not be committed.
+- Docker Compose reads `POSTGRES_USER` and `POSTGRES_PASSWORD` from `.env`.
 
 ## Tests
 Backend unit/integration tests:
